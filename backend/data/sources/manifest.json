@@ -1,0 +1,28 @@
+{
+  "sources": [
+    {
+      "source_key": "tn_tenancy_act_2017",
+      "title": "Tamil Nadu tenancy source",
+      "authority": "TODO_VERIFY",
+      "jurisdiction": "TN",
+      "domain": "tenancy",
+      "url": "TODO_VERIFY",
+      "status": "TODO_VERIFY",
+      "effective_date": "TODO_VERIFY",
+      "last_verified": "TODO_VERIFY",
+      "file": "tn_tenancy_act_2017.pdf"
+    },
+    {
+      "source_key": "model_tenancy_act_2021",
+      "title": "Model tenancy source",
+      "authority": "TODO_VERIFY",
+      "jurisdiction": "central",
+      "domain": "tenancy",
+      "url": "TODO_VERIFY",
+      "status": "TODO_VERIFY",
+      "effective_date": "TODO_VERIFY",
+      "last_verified": "TODO_VERIFY",
+      "file": "model_tenancy_act_2021.pdf"
+    }
+  ]
+}

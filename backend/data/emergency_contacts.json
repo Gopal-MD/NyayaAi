@@ -1,0 +1,22 @@
+{
+  "contacts": [
+    {
+      "id": "national-emergency",
+      "name": "Emergency services",
+      "number": "TODO_VERIFY",
+      "type": "emergency",
+      "scope": "national",
+      "languages": ["en", "ta"],
+      "description": "Use verified local emergency services if there is immediate danger."
+    },
+    {
+      "id": "women-helpline",
+      "name": "Women helpline",
+      "number": "TODO_VERIFY",
+      "type": "support",
+      "scope": "national",
+      "languages": ["en", "ta"],
+      "description": "Verify the current number before publishing or calling."
+    }
+  ]
+}

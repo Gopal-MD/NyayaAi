@@ -1,0 +1,25 @@
+rules:
+  - id: high_security_deposit
+    type: structured-field-comparison
+    field: security_deposit
+    label: Security deposit
+  - id: lock_in_period
+    type: keyword-in-clause
+    keywords: [lock-in, lock in]
+    label: Lock-in period
+  - id: notice_period
+    type: keyword-in-clause
+    keywords: [notice period, notice]
+    label: Notice period
+  - id: penalty_clause
+    type: keyword-in-clause
+    keywords: [penalty, late fee, forfeit]
+    label: Penalty clause
+  - id: maintenance_obligation
+    type: keyword-in-clause
+    keywords: [maintenance, repair]
+    label: Maintenance obligation
+  - id: subletting_restriction
+    type: keyword-in-clause
+    keywords: [sublet, subletting]
+    label: Subletting restriction

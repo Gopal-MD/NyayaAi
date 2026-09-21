@@ -1,0 +1,9 @@
+{
+  "terms": [
+    {"term": "security deposit", "plain_language": "Money held as security under the agreement."},
+    {"term": "lock-in period", "plain_language": "A period when ending the agreement may have extra conditions."},
+    {"term": "notice period", "plain_language": "Advance warning required before ending the agreement."},
+    {"term": "stamp duty", "plain_language": "A government charge that may apply to certain documents."},
+    {"term": "subletting", "plain_language": "Allowing another person to use the rented property."}
+  ]
+}
