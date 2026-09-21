@@ -166,6 +166,70 @@ cd backend
 ..\.venv\Scripts\python -c "from app.main import app; print(app.title)"
 ```
 
+## User Workflow
+
+### 1. Start a session
+
+The user opens the Next.js application, chooses English, Tamil, or Hindi, and signs in with Firebase or continues as a guest where the configured flow allows it.
+
+### 2. Create or select a case
+
+The user creates a tenancy case and provides the relevant state or jurisdiction. Case records and child records are scoped to the authenticated Firebase user.
+
+### 3. Upload a document
+
+The user accepts the privacy consent statement and uploads a PDF, DOCX, JPG, or PNG file. The backend validates the file type and size before processing it.
+
+### 4. Extract and protect the text
+
+NyayaAi extracts text with PyMuPDF or python-docx. Image-based documents use OCR when text density is low. Aadhaar numbers, PAN numbers, email addresses, and phone numbers are masked before the text is stored or sent to an LLM.
+
+### 5. Analyse the agreement
+
+The analysis pipeline classifies the document, extracts structured rental facts, finds deadlines, identifies relevant clauses, and prepares a plain-language summary with questions the user can ask a lawyer.
+
+### 6. Ask a question
+
+The user asks a question in the assistant. The backend detects safety risk, language, intent, and jurisdiction before searching the document and official-source context.
+
+### 7. Receive a grounded response
+
+The answer generator can only use retrieved context. Each citation is checked against source text by deterministic validation. If the answer cannot be verified, NyayaAi returns an abstention message instead of guessing.
+
+### 8. Handle urgent situations
+
+If the safety gate detects arrest, immediate danger, domestic violence, child safety concerns, self-harm, or another high-risk signal, normal answer generation is bypassed. The response shows emergency and legal-aid resources instead.
+
+### 9. Prepare next steps
+
+The action-plan layer turns verified facts, deadlines, documents, official resources, and lawyer questions into a practical checklist. It always includes the legal-information limitation.
+
+## Developer Workflow
+
+```text
+Create or update code
+  |
+  v
+Run backend tests and frontend build
+  |
+  v
+Check that no .env files or secrets are staged
+  |
+  v
+Commit to main
+  |
+  v
+Push to GitHub
+  |
+  v
+Vercel builds frontend from frontend/
+  |
+  v
+Backend host runs FastAPI from backend/
+```
+
+For a new feature, keep changes in the owning layer: route contracts in `api/`, legal processing in `documents/`, orchestration in `orchestrator/`, retrieval in `rag/`, and UI behavior in `frontend/src/`. Add focused tests for safety, citations, extraction, deadlines, and abstention before widening the change.
+
 ## Deployment
 
 ### Vercel frontend
